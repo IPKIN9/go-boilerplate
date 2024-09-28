@@ -1,8 +1,17 @@
-package consts
+package configs
 
-import "os"
+import (
+	"os"
+
+	"github.com/joho/godotenv"
+)
 
 func GetBaseUrl() (*string, error) {
-	BaseUrl := os.Getenv("GO_BASE_URL")
+	err := godotenv.Load()
+	if err != nil {
+		return nil, err
+	}
+
+	BaseUrl := os.Getenv("BASE_URL")
 	return &BaseUrl, nil
 }
