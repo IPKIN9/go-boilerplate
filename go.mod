@@ -1,3 +1,3 @@
-module github.com/IPKIN9/go-boilerplate.git
+module github.com/IPKIN9/go-boilerplate/pkg
 
 go 1.23.1
