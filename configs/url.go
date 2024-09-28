@@ -6,12 +6,17 @@ import (
 	"github.com/joho/godotenv"
 )
 
-func GetBaseUrl() (*string, error) {
+func init() {
 	err := godotenv.Load()
 	if err != nil {
-		return nil, err
+		os.Exit(1)
 	}
+}
 
+func GetBaseUrl() *string {
 	BaseUrl := os.Getenv("BASE_URL")
-	return &BaseUrl, nil
+	if len(BaseUrl) < 1 {
+		return nil
+	}
+	return &BaseUrl
 }
